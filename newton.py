@@ -12,10 +12,9 @@ def drvt2(f,x):
     return f2
 
 
-def optimize(x,f):
+def optimize(x,f,eps=1e-15):
     if not callable(f):
         raise TypeError(f"Argument is not a function, it is of type {type(f)}")
-    eps = 1e-15
     temp = 1 + eps
     while abs(temp) > eps:
         temp = drvt(f,x)/drvt2(f,x)
